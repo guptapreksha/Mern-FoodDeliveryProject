@@ -19,10 +19,20 @@ app.use(express.json()) //whenever we get the request from frontend to backend t
 
 // app.use(cors()) //using this we access the backend from frontend
 
+const allowedOrigins = [
+  'https://mern-fooddeliveryproject-frontend.onrender.com',
+  'https://mern-fooddeliveryproject-admin.onrender.com'
+];
+
 app.use(cors({
-  origin: 'https://mern-fooddeliveryproject-frontend.onrender.com',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust as needed
-  credentials: true, // If you're using cookies or authorization headers
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // if you're using cookies or auth headers
 }));
 
 // db connection started 
