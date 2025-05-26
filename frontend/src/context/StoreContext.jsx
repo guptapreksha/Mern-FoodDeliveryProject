@@ -6,8 +6,8 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
 
-  // const url = 'https://mern-project-backend-y6i5.onrender.com' 
-  const url = 'http://localhost:4001' 
+  const url = 'https://mern-fooddeliveryproject-backend.onrender.com' 
+  // const url = 'http://localhost:4001' 
    const [token,setToken] = useState("");
    const [food_list,setFoodList] = useState([])
 
