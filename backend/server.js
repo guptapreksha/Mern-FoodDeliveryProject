@@ -17,7 +17,11 @@ const port = process.env.PORT || 4001;
 //middleware
 app.use(express.json()) //whenever we get the request from frontend to backend that will pssed using json
 
-app.use(cors()) //using this we access the backend from frontend
+// app.uapp.use(cors({
+  origin: 'https://mern-fooddeliveryproject-frontend.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust as needed
+  credentials: true, // If you're using cookies or authorization headers
+}));se(cors()) //using this we access the backend from frontend
 
 
 
